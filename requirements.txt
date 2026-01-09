@@ -1,0 +1,33 @@
+# Core dependencies for Vision Tool Use Evaluation Framework
+
+# Image processing
+Pillow>=10.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Data processing and analysis
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Web scraping and HTTP requests
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Financial data
+yfinance>=0.2.18
+
+# Simulation and modeling
+simpy>=3.0.0
+
+# Table formatting
+tabulate>=0.9.0
+
+# LLM and API clients
+openai>=1.0.0
+litellm>=1.0.0
+
+# Environment and configuration
+python-dotenv>=1.0.0
+
+# Dataset download from HuggingFace
+datasets>=2.0.0

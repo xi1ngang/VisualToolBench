@@ -1,0 +1,59 @@
+downloads/
+VR delivery*
+eval_results_multi_turn/
+eval_results_single_turn/
+
+# Data folder - users download from HuggingFace
+data/
+
+transformed_image*
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+eggs/
+*.egg-info/
+.installed.txt
+
+# Environments
+.env
+venv/
+env/
+# virtualenv
+# .venv/
+
+# Editors and IDEs
+.idea/             # IntelliJ IDEA
+.vscode/           # Visual Studio Code
+*.sublime-project  # Sublime Text
+*.sublime-workspace
+.DS_Store          # macOS specific
+Thumbs.db          # Windows specific
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytest
+.pytest_cache/
+
+# Sphinx documentation
+docs/_build/
+
+# Temporary files
+*.log
+*.tmp
+*.swp
