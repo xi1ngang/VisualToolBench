@@ -179,15 +179,13 @@ export OPENWEATHER_API_KEY="your-openweathermap-key"
 Run inference on the single-turn dataset:
 
 ```bash
-cd scripts
-
 # Using default (gpt-4o)
-./run_model_response_single_turn.sh
+./scripts/run_model_response_single_turn.sh
 
 # Specify a model
-./run_model_response_single_turn.sh gpt-4o
-./run_model_response_single_turn.sh gemini/gemini-2.0-flash
-./run_model_response_single_turn.sh claude-sonnet-4-20250514
+./scripts/run_model_response_single_turn.sh gpt-4o
+./scripts/run_model_response_single_turn.sh gemini/gemini-2.0-flash
+./scripts/run_model_response_single_turn.sh claude-sonnet-4-20250514
 ```
 
 Or run the Python script directly with more options:
@@ -206,13 +204,11 @@ python scripts/run_model_response_single_turn.py \
 ### Multi-Turn Evaluation
 
 ```bash
-cd scripts
-
 # Using default (gpt-4o)
-./run_model_response_multi_turn.sh
+./scripts/run_model_response_multi_turn.sh
 
 # Specify a model
-./run_model_response_multi_turn.sh gpt-4o
+./scripts/run_model_response_multi_turn.sh gpt-4o
 ```
 
 Or with Python:
@@ -233,8 +229,7 @@ After generating model responses, evaluate them using an LLM judge:
 #### Single-Turn Judge
 
 ```bash
-cd scripts
-./run_judge_single_turn.sh gpt-4o
+./scripts/run_judge_single_turn.sh gpt-4o
 ```
 
 Or with Python:
@@ -251,8 +246,7 @@ python scripts/run_judge_single_turn.py \
 #### Multi-Turn Judge
 
 ```bash
-cd scripts
-./run_judge_multi_turn.sh gpt-4o
+./scripts/run_judge_multi_turn.sh gpt-4o
 ```
 
 ### Computing Overall Scores
@@ -260,8 +254,7 @@ cd scripts
 After running the judge, compute aggregated scores:
 
 ```bash
-cd eval_results
-python compute_overall_score.py
+python eval_results/compute_overall_score.py
 ```
 
 This outputs:
@@ -327,7 +320,7 @@ VisualToolBench/
 
 ```bash
 # 1. Clone and setup
-git clone https://github.com/ScaleAI/VisualToolBench.git
+git clone https://github.com/xi1ngang/VisualToolBench.git
 cd VisualToolBench
 pip install -r requirements.txt
 
@@ -338,12 +331,11 @@ python download_dataset.py
 export OPENAI_API_KEY="your-key"
 export SERP_API_KEY="your-serpapi-key"
 
-# 4. Run evaluation
-cd scripts
-./run_model_response_single_turn.sh gpt-4o
+# 4. Run evaluation (from project root)
+./scripts/run_model_response_single_turn.sh gpt-4o
 
 # 5. Run judge
-./run_judge_single_turn.sh gpt-4o
+./scripts/run_judge_single_turn.sh gpt-4o
 ```
 
 ## License
@@ -355,13 +347,14 @@ This project is licensed under the Apache 2.0 License.
 If you use VisualToolBench in your research, please cite:
 
 ```bibtex
-@misc{visualtoolbench2025,
-  title={VisualToolBench: A Benchmark for Vision-Language Model Tool Use},
-  author={Scale AI},
-  year={2025},
-  url={https://github.com/ScaleAI/VisualToolBench}
+@article{guo2025beyond,
+  title={Beyond Seeing: Evaluating Multimodal LLMs on Tool-Enabled Image Perception, Transformation, and Reasoning},
+  author={Guo, Xingang and Tyagi, Utkarsh and Gosai, Advait and Vergara, Paula and Park, Jayeon and Montoya, Ernesto Gabriel Hern{\'a}ndez and Zhang, Chen Bo Calvin and Hu, Bin and He, Yunzhong and Liu, Bing and Rakshith, Sharma Srinivasa},
+  journal={arXiv preprint arXiv:2510.12712},
+  year={2025}
 }
 ```
+
 
 ## Contact
 
