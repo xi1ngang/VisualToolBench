@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/Tool%20Use-⚙️-blue" alt="Tool Use">
 </p>
 
-**VisualToolBench** is a comprehensive benchmark for evaluating vision-language models (VLMs) on **think-with-images** capabilities—tasks that require models to actively manipulate visual content, not just passively understand it.
+**VisualToolBench** is a comprehensive benchmark for evaluating vision-language models (VLMs) on **think-with-images** capabilities, tasks that require models to actively manipulate visual content, not just passively understand it.
 
 ## 📋 Table of Contents
 
