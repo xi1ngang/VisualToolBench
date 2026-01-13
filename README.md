@@ -5,37 +5,93 @@
   <img src="https://img.shields.io/badge/Python-3.9+-green.svg" alt="Python">
 </p>
 
-A comprehensive evaluation framework for benchmarking vision-language models (VLMs) on **think-with-images** capabilities. VisualToolBench tests how well multimodal LLMs can leverage external tools (Python image processing, Python code execution, web search, calculators, etc.) to solve visual reasoning problems.
+**VisualToolBench** is a comprehensive benchmark for evaluating vision-language models (VLMs) on **think-with-images** capabilities—tasks that require models to actively manipulate visual content, not just passively understand it.
 
 ## 📋 Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
+- [Dataset Sample](#dataset-sample)
+- [Evaluation](#evaluation)
 - [Installation](#installation)
 - [Dataset](#dataset)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [Available Tools](#available-tools)
 - [Supported Models](#supported-models)
 - [Project Structure](#project-structure)
 - [Citation](#citation)
 
 ## Overview
 
-VisualToolBench evaluates vision-language models on their ability to:
-- Process and analyze images using Python image processing code
-- Combine both vision tools and general-purpose tools for complex visual reasoning tasks
+**VisualToolBench** is the first benchmark designed to evaluate vision-language models on **think-with-images** capabilities—the ability to actively manipulate and transform visual content to solve complex reasoning problems.
 
-The benchmark includes both **single-turn** and **multi-turn** evaluation scenarios, with rubric-based scoring using LLM judges.
+Unlike traditional VLM benchmarks that test passive image understanding, VisualToolBench challenges models to:
 
-## Features
+- 🔧 **Actively manipulate images** using Python code (cropping, enhancing, annotating, measuring)
+- 🔗 **Chain multiple tools** together for multi-step visual reasoning
+- 🌐 **Integrate external knowledge** via web search, weather APIs, and calculators
+- 🔄 **Reason iteratively** by generating new images and using them to inform subsequent steps
 
-- 🖼️ **Image Processing Tools**: Python-based image manipulation using PIL, NumPy, and OpenCV
-- 🔍 **Web Search**: Google search integration via SerpAPI
-- 🌐 **Web Browsing**: Extract text content from web pages
-- 🧮 **Calculator**: Safe mathematical expression evaluation
-- ⚖️ **LLM-as-Judge**: Automated evaluation using rubric-based grading
-- 📊 **Multi-trial Support**: Run multiple trials for statistical robustness
+The benchmark comprises **1,204 challenging, open-ended vision tasks**:
+- **603 single-turn tasks** — standalone problems solvable in one response
+- **601 multi-turn tasks** — conversational scenarios requiring sustained reasoning
+
+Tasks span **five diverse domains**: STEM, finance, medical, sports, and general knowledge, each task is paired with detailed evaluation rubrics for systematic assessment.
+
+<p align="center">
+  <img src="assets/overview.png" alt="Dataset Statistics and Domain Distribution" width="70%">
+</p>
+
+## Dataset Sample
+
+Each task in VisualToolBench presents a real-world challenge where critical visual information is often distributed across different regions of an image—requiring models to strategically crop, zoom, or enhance specific areas for accurate perception.
+
+<p align="center">
+  <img src="assets/dataset_sample.png" alt="Example Task from VisualToolBench" width="70%">
+</p>
+
+**Key features of each task:**
+- **Rich visual context** — Images contain multiple regions of interest that must be processed separately
+- **Detailed rubrics** — Human-authored evaluation criteria covering both correctness and reasoning quality
+- **Dual scoring** — Each response receives both a weighted rubric score (0–1) and a binary pass/fail based on critical rubrics
+
+## Evaluation
+
+### Evaluation Setup
+
+We evaluate models using **iterative reasoning via tool-use**. Models receive a set of available tools and invoke them by emitting structured function calls.
+
+**How tool outputs are handled:**
+| Tool Type | Output | Handling |
+|-----------|--------|----------|
+| Text tools (python intepreter, search, calculator) | Text | Appended as tool message |
+| Vision tools (python image processing) | Images | Inserted as user message with encoded image |
+
+
+**Constraints:**
+- Maximum **20 tool calls** per task (human reference solutions typically use < 5)
+
+### Evaluation Metrics
+
+We report two complementary metrics derived from rubric-based LLM judgments:
+
+| Metric | Description |
+|--------|-------------|
+| **Average Pass Rate (APR)** | Percentage of tasks where the model satisfies *all* critical rubrics. A single critical failure means the task is marked as failed. |
+| **Average Rubric Score (ARS)** | Weighted proportion of satisfied rubrics per task. Each rubric has an importance weight (1–5); the score is computed as: `(satisfied rubric weights) / (total rubric weights)` |
+
+APR measures strict task completion, while ARS provides a more nuanced view of partial credit and overall response quality.
+
+### Available Tools
+
+| Tool | Description |
+|------|-------------|
+| `python_image_processing` | Execute Python code for image manipulation (PIL, NumPy, OpenCV) |
+| `python_interpreter` | General-purpose Python execution with data science libraries |
+| `google_search` | Search Google and return structured results |
+| `browser_get_page_text` | Fetch and extract text from web pages |
+| `historical_weather` | Query weather data for locations |
+| `calculator` | Safely evaluate mathematical expressions |
+
 
 ## Installation
 
@@ -207,16 +263,7 @@ This outputs:
 - **Overall Score (ARS)**: Weighted rubric satisfaction score
 - **Domain-wise Results**: Scores per category (STEM, medical, finance, etc.)
 
-## Available Tools
 
-| Tool | Description |
-|------|-------------|
-| `python_image_processing` | Execute Python code for image manipulation (PIL, NumPy, OpenCV) |
-| `python_interpreter` | General-purpose Python execution with data science libraries |
-| `google_search` | Search Google and return structured results |
-| `browser_get_page_text` | Fetch and extract text from web pages |
-| `historical_weather` | Query weather data for locations |
-| `calculator` | Safely evaluate mathematical expressions |
 
 ## Supported Models
 
