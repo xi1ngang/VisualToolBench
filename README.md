@@ -44,7 +44,7 @@ The benchmark comprises **1,204 challenging, open-ended vision tasks**:
 Tasks span **five diverse domains**: STEM, finance, medical, sports, and general knowledge, each task is paired with detailed evaluation rubrics for systematic assessment.
 
 <p align="center">
-  <img src="assets/overview.png" alt="Dataset Statistics and Domain Distribution" width="70%">
+  <img src="assets/overview.png" alt="Dataset Statistics and Domain Distribution" width="100%">
 </p>
 
 ## Dataset Sample
@@ -52,7 +52,7 @@ Tasks span **five diverse domains**: STEM, finance, medical, sports, and general
 Each task in VisualToolBench presents a real-world challenge where critical visual information is often distributed across different regions of an image—requiring models to strategically crop, zoom, or enhance specific areas for accurate perception.
 
 <p align="center">
-  <img src="assets/dataset_sample.png" alt="Example Task from VisualToolBench" width="70%">
+  <img src="assets/dataset_sample.png" alt="Example Task from VisualToolBench" width="100%">
 </p>
 
 **Key features of each task:**
