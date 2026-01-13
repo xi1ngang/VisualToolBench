@@ -1,20 +1,17 @@
 # VisualToolBench
 
-<p align="center">
+<p align="left">
   <a href="https://huggingface.co/datasets/ScaleAI/VisualToolBench"><img src="https://img.shields.io/badge/🤗%20Dataset-VisualToolBench-yellow.svg" alt="HuggingFace"></a>
   <a href="https://arxiv.org/abs/2510.12712"><img src="https://img.shields.io/badge/arXiv-2510.12712-b31b1b.svg" alt="arXiv"></a>
   <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
   <img src="https://img.shields.io/badge/Python-3.9+-green.svg" alt="Python">
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/VLM-Benchmark-8A2BE2" alt="VLM">
   <img src="https://img.shields.io/badge/Think--with--Images-🖼️-orange" alt="Think-with-Images">
   <img src="https://img.shields.io/badge/Function%20Calling-🔧-green" alt="Function Calling">
   <img src="https://img.shields.io/badge/Tool%20Use-⚙️-blue" alt="Tool Use">
 </p>
 
-**VisualToolBench** is a comprehensive benchmark for evaluating vision-language models (VLMs) on **think-with-images** capabilities, tasks that require models to actively manipulate visual content, not just passively understand it.
+**VisualToolBench** is a comprehensive benchmark for evaluating vision-language models on **think-with-images** capabilities, tasks that require models to actively manipulate visual content, not just passively understand it.
 
 ## 📋 Table of Contents
 
